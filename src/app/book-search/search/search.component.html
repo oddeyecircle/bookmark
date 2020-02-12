@@ -1,0 +1,41 @@
+<ion-header no-border>
+  <ion-toolbar class="bookmark-header">
+    <ion-title size="large">Find<br>your book</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" routerLink="/book-list">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="ion-no-border">
+    <form (submit)="onSubmit(searchForm)"#searchForm="ngForm" class="ion-padding">
+      <ion-item class="bookmark-search-bar">
+        <ion-input
+          inputmode="search"
+          placeholder="E.g. Harry Potter"
+          color="primary"
+          ngModel
+          name="query"
+          clearOnEdit="true"
+          ></ion-input>
+        <ion-icon name="search" slot="end" color="primary"></ion-icon>
+      </ion-item>
+    </form>
+  </ion-toolbar>
+</ion-header>
+<!-- <div class="bookmark-header"> -->
+  <!-- <ion-text>
+    <h1 class="ion-padding"><strong>Find<br>your book</strong></h1>
+  </ion-text>
+  <form (submit)="onSubmit(searchForm)"#searchForm="ngForm" class="ion-padding">
+    <ion-item class="bookmark-search-bar">
+      <ion-input
+        inputmode="search"
+        placeholder="E.g. Harry Potter"
+        color="primary"
+        ngModel
+        name="query"
+        ></ion-input>
+    </ion-item>
+  </form> -->
+<!-- </div> -->

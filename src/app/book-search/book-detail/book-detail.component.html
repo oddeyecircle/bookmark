@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-toolbar style="--min-height:15vh">
+    <ion-title size="large">Add Book</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <img [src]="image" class="bookmark-shadow">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding-start ion-padding-end">
+        <ion-text color="primary">
+          <h2 style="font-size:3rem; margin-bottom:0"><strong>{{ title }}</strong></h2>
+        </ion-text>
+        <ion-text color="medium">
+          <h5 class="ion-no-margin"><strong>{{ author | uppercase }}</strong></h5>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <div class="bookmark-total-pages">
+          <ion-text color="medium">PAGES</ion-text>
+          <ion-input [value]="pages" type="text" color="primary-shade"></ion-input>
+          <small>
+            <ion-text color="medium">Around {{ duration }}.</ion-text>
+          </small>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+        <div [innerHtml]="description">
+        </div>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="secondary" (click)="onAddBook()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

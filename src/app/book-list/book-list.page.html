@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar style="--min-height:15vh">
+    <ion-title size="large">Your books</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="bookList.length > 0; else noDataBlock">
+      <app-book-list-item
+      *ngFor="let book of bookList"
+      [image]="book.image"
+      [title]="book.title"
+      [author]="book.author"
+      [currentPage]="book.currentPage"
+      [totalPages]="book.totalPages"
+      [id]="book.id">
+  </app-book-list-item>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button routerLink="/book-search">
+      <ion-icon name="search"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </ng-container>
+  <ng-template #noDataBlock>
+    <ion-grid style="height:100%">
+      <ion-row class="ion-align-items-center" style="height:100%">
+        <ion-col>
+          <div class="ion-text-center ion-padding">
+            <ion-text color="primary">You're not reading any books.</ion-text>
+            <ion-button fill="outline" size="large" shape="round" routerLink="/book-search" class="ion-margin-top">Start reading <ion-icon slot="end" name="book"></ion-icon></ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>

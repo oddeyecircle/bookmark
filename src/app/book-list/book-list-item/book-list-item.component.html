@@ -1,0 +1,55 @@
+<ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <img [src]="image" [alt]="title" class="bookmark-shadow ion-margin-top" style="max-width:33%;margin-left: auto;margin-right: auto;">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding ion-text-center">
+        <h3><ion-text color="dark"><strong>{{ title }}</strong></ion-text></h3>
+        <h6 class="ion-no-margin ion-margin-bottom"><ion-text color="medium">{{ author | uppercase }}</ion-text></h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="!updateMode; else updateTemplate">
+        <ion-progress-bar [value]="progress"></ion-progress-bar>
+      </ion-col>
+      <ng-template #updateTemplate>
+        <ion-col class="ion-align-items-center">
+          <ion-row>
+            <h5>I'm on page</h5>
+            <ion-input
+            class="bookmark-update-input"
+            type="number"
+            color="primary"
+            inputmode="numeric"
+            [value]="currentPage"
+            [(ngModel)]="currentPage"
+            [max]="totalPages"
+            #updateInput></ion-input>
+          <ion-button fill="clear" (click)="onBookUpdate(id)">
+            <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" color="danger" (click)="updateMode = !updateMode">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>   
+          </ion-row>      
+        </ion-col>
+      </ng-template>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        Page {{ currentPage }} of {{ totalPages }}.
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <ion-button size="small" fill="clear" (click)="updateMode = !updateMode" [disabled]="updateMode">
+          {{ updateMode ? 'Updating' : 'Update' }}
+        </ion-button>
+        <ion-button size="small" color="medium" fill="clear" [disabled]="updateMode" (click)="onDeleteBook(id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

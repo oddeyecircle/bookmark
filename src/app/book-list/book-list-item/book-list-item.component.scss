@@ -1,0 +1,11 @@
+ion-progress-bar {
+    --progress-background: linear-gradient(to right, var(--ion-color-primary-shade), var(--ion-color-primary-tint));
+    height: 8px;
+    border-radius: 10px;
+}
+
+.bookmark-update-input {
+    --padding-start: 16px;
+    font-size: 2rem;
+    text-align: right;
+}
